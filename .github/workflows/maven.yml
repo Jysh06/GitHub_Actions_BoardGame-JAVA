@@ -6,7 +6,11 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
+  
+  
+env:
+  APP_NAME: "GITHUB ACTIONS"
+  
 jobs:
   compile:
 
@@ -25,6 +29,7 @@ jobs:
         mvn compile
         mvn test
         mvn package
+        echo "Application Name : $APP_NAME"
 
     - uses: actions/upload-artifact@v7
       with:
