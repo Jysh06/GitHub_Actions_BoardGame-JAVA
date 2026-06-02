@@ -27,6 +27,7 @@ jobs:
 
     runs-on: ubuntu-latest
     name: TEST ACTION
+    needs: compile
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 17
@@ -44,6 +45,7 @@ jobs:
 
     runs-on: ubuntu-latest
     name: PACKAGE ACTION
+    needs: test
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 17
