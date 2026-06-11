@@ -31,7 +31,24 @@ jobs:
         mvn package
         echo "Application Name : $APP_NAME"
 
-    - uses: actions/upload-artifact@v7
-      with:
-        name: boardgame-java
-        path: target/* # or path/to/artifact
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v4
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v4
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+      -
+        name: Build and push
+        uses: docker/build-push-action@v7
+        with:
+          push: true
+          tags: java:v1234
