@@ -54,4 +54,4 @@ jobs:
       uses: docker/build-push-action@v7
       with:
         push: true
-        tags: jysh06/java:v33
+        tags: jysh06/javaparrara:v2121
