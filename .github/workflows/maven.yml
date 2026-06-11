@@ -50,4 +50,4 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           push: true
-          tags: java:v123
+          tags: jysh06/java:v33
