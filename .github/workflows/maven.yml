@@ -8,8 +8,8 @@ on:
     branches: [ "main" ]
   
   
-env:
-  APP_NAME: "GITHUB ACTIONS"
+# env:
+#   APP_NAME: "GITHUB ACTIONS"
   
 jobs:
   compile:
@@ -29,7 +29,6 @@ jobs:
         mvn compile
         mvn test
         mvn package
-        echo "Application Name : $APP_NAME"
 
   docker:
     runs-on: ubuntu-latest
